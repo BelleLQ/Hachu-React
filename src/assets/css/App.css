@@ -1,0 +1,420 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+div{
+  padding: 0;
+  margin: 0;
+}
+a{
+  text-decoration: none;
+  color: black;
+}
+a:hover{
+  text-decoration: none;
+  color: grey;
+}
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.footer-text {
+  font-size: 12px;
+  color:white;
+  font-family: 'Roboto', sans-serif;
+  margin: 0 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+.footer{
+  background-color: #ABBBB5;
+  height:100px;
+  padding: 0 70px;
+}
+
+.font-Pacifico{
+  font-family: 'Pacifico', cursive;
+}
+.color-maj-green{
+  color: #ABBBB5 !important;
+}
+
+/*HomePage*/
+.hero-img{
+  height: 500px;
+  width: auto;
+}
+.hero-text{
+  font-family: 'Roboto', sans-serif;
+  color: #757575;
+  margin: 0;
+}
+.feature-img-div{
+  overflow: hidden;
+  height:256px;
+  width: 256px;
+  margin: 0 10px;
+}
+
+.feature-img{
+  height: 256px;
+  width: 100%;
+}
+.feature-section{
+  background-color: #f6f4ef;
+  padding: 60px 0 80px 0;
+}
+.feature-title{
+  color: #ABBBB5;
+  font-size:20px;
+  font-family: 'Roboto', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+}
+.feature-prodName, .feature-prodPrice{
+  font-family: 'Roboto Mono', sans-serif;
+  font-size:13px;
+}
+.nav-link{
+  margin: 0 10px;
+  text-align: center;
+}
+
+.nav-link-a{
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: #757575;
+  line-height: 40px;
+
+}
+.underline-fade-in {
+  display: block;
+  position: relative;
+  text-decoration: none;
+}
+.underline-fade-in:hover {
+  color: #607980;
+}
+
+.underline-fade-in::after {
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  left: 0;
+  width: 100%;
+  height: 0.2em;
+  background-color: #607980;
+  opacity: 0;
+  transition: opacity 300ms, transform 300ms;
+}
+
+.underline-fade-in:hover::after,
+.underline-fade-in:focus::after{
+  opacity: 1;
+  transform: translate3d(0, 0.2em, 0);
+}
+
+.about-container{
+  height: 105vw;
+  overflow: hidden;
+}
+.about-title-container{
+  height: 400px;
+  width: 100%;
+  overflow: hidden;
+  background-image: url("https://hachu-canada.com/wp-content/uploads/2021/09/about-us-bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+.about-title{
+  background-color: white;
+  width: 600px;
+  height:153px;
+}
+
+.about-title-text {
+  text-align: center;
+  vertical-align: middle;
+}
+.about {
+  color: #896D6D;
+  font-size: 60px;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 300;
+  text-transform: uppercase;
+  margin-bottom: 0;
+}
+.about-text{
+  font-size: 13px;
+  font-family: 'Amiko', sans-serif;
+  color: #896D6D;
+}
+.intro-container-circle{
+  background-color: #626B68;
+  height: 41vw;
+  width:41vw;
+  border-radius: 50%;
+  position: relative;
+  top: -60vw;
+}
+.intro-text{
+  width: 400px;
+  font-family: 'Roboto Mono', sans-serif;
+  color: white;
+  background: #333;
+  font-size: 12px;
+}
+
+.about-pic-circle-1{
+  height: 20vw;
+  width: 20vw;
+  overflow: hidden;
+  border-radius: 50%;
+  position: relative;
+  left: 24vw;
+  margin-top: 2vw;
+  z-index: 999;
+}
+
+.about-pic-circle-1 img{
+  height: 20vw;
+}
+
+.about-pic-circle-2{
+  height: 28vw;
+  width: 28vw;
+  overflow: hidden;
+  border-radius: 50%;
+  position: relative;
+  left: 76vw;
+  top: -16vw;
+}
+
+.about-pic-circle-2 img{
+  height: 28vw;
+}
+
+.about-pic-circle-3{
+  height: 23vw;
+  width: 23vw;
+  overflow: hidden;
+  border-radius: 50%;
+  position: relative;
+  left: -8vw;
+  top: -33vw;
+}
+
+.about-pic-circle-3 img{
+  height: 23vw;
+}
+
+.about-pic-circle-4{
+  height: 17vw;
+  width: 17vw;
+  overflow: hidden;
+  border-radius: 50%;
+  position: relative;
+  left: 64vw;
+  top:-79vw;
+}
+
+.about-pic-circle-4 img{
+  height: 17vw;
+}
+
+.about-pic-circle-5{
+  height: 34vw;
+  width: 34vw;
+  overflow: hidden;
+  border-radius: 50%;
+  position: relative;
+  left: 9vw;
+  top:-94vw;
+}
+
+.about-pic-circle-5 img{
+  height: 34vw;
+  width: 34vw;
+}
+
+.cart-container{
+  margin: 2vw 10vw;
+}
+.cart-table{
+  width:80%;
+  border-color: #eaeaea !important;
+}
+.cart-table tbody, td, tfoot, th, thead, tr{
+  border-color: #eaeaea !important;
+}
+
+.cart-table thead tr th{
+  font-size:12px;
+  font-family: 'Roboto', sans-serif;
+  color: #444444;
+}
+
+.cart-table tbody tr td{
+  font-family: "Roboto Mono", sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+  font-size: 14px;
+}
+
+.cart-img{
+  height: 10vw;
+  width: 10vw;
+  overflow: hidden;
+}
+
+.cart-img img{
+  height:9vw;
+  width: auto;
+}
+.btn-green{
+  color: #fff;
+  background-color: #6C827A;
+  border-color: #6C827A;
+  height:100%;
+  border-radius: 0;
+  font-size: 14px;
+}
+
+.btn-green:hover{
+  background-color:#445a52 !important;
+  border-color: #445a52 !important;
+}
+.btn-update-cart{
+margin-left: 50vw;
+}
+.coupon-input{
+  vertical-align: middle;
+  font-size: 14px;
+  margin-right: 10px;
+  border: 1px solid #ddd;
+}
+
+.coupon-input::placeholder{
+  color: #c0c0c0
+}
+
+.login-form{
+  width:40vw;
+  border: 2px solid #eaeaea;
+  padding: 1vw 1.5vw 1vw 1.5vw;
+  margin-bottom: 50px !important;
+}
+
+.form-label{
+  color:#757575;
+  font-size: 13px;
+}
+.login-title{
+  margin-top: 4vw;
+}
+
+.login-title a{
+  font-size: 50px;
+  font-family: 'Roboto Mono', sans-serif;
+  font-weight: bold;
+  letter-spacing:4px;
+}
+
+.login-title-grey{
+  color:grey;
+}
+.login-title-black:hover{
+  color:black;
+}
+.login-title-grey:hover{
+  color:black;
+}
+
+.title-or{
+  display: inline-block;
+  width: 36px;
+  height: 36px;
+  line-height: 36px;
+  color: #333;
+  border: 2px solid;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin: 0 16px;
+  opacity: .5;
+  border-radius: 50%;
+  vertical-align: text-bottom;
+}
+
+.category-title {
+  height: 20vw;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  filter: brightness(70%);
+}
+
+.category-title p{
+  color:white;
+  font-size:25px;
+  letter-spacing: 10px;
+}
+.card{
+  border: 0;
+}
+.card-img-container{
+  width: 18rem;
+  height:18rem;
+  overflow: hidden;
+}
+
+.feature-card:hover .feature-img{
+  transform: scale(1.3);
+}
+
+.card h5{
+font-family: 'Roboto', sans-serif;
+font-size:13px;
+}
+
+.card p{
+  font-family: 'Roboto', sans-serif;
+  font-size:12px;
+}
+
