@@ -23,7 +23,7 @@ function Header() {
                     >
                         <NavDropdown title={<a className="nav-link-a underline-fade-in" style={{display:'inline-block'}}>COLLECTIONS</a>} id="navbarScrollingDropdown">
                             {categories.map((category, index)=>{
-                                return <NavDropdown.Item href={`/products/categories/${category.categoryName}`} className="nav-link-a" key={index}>{category.categoryName}</NavDropdown.Item>
+                                return <NavDropdown.Item href={`/products/categories/${category._id}`} className="nav-link-a" key={index}>{category.categoryName}</NavDropdown.Item>
                                 })}
 
                         </NavDropdown>
