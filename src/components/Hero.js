@@ -2,9 +2,9 @@ import React from 'react'
 
 const Hero = () => {
     return (
-            <div className="container">
+            <div className="container-fluid p-0">
                 <div className="row">
-                    <div className="col-4 text-start my-auto">
+                    <div className="col-4 text-start my-auto px-5">
                         <p className="font-Pacifico">A better way of living</p>
                         <p className="hero-text">High-quality Canadian merchandise</p>
                         <p className="hero-text">Less chemistry, more nature</p>

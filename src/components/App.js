@@ -13,6 +13,7 @@ import SignUpPage from "../pages/SignUpPage";
 import CartPage from "../pages/CartPage";
 import ProductDetailPage from "../pages/ProductDetailPage";
 import ProductsListingPage from "../pages/ProductsListingPage";
+import ProductsListingBrandPage from "../pages/ProductsListingBrandPage";
 
 
 import CategoryContext from '../contexts/CategoryContext'
@@ -48,6 +49,7 @@ function App() {
               console.log(err);
           })
   },[])
+    console.log(categories);
   return (
       <Router>
           <CategoryContext.Provider value = {{categories, setCategories}}>
@@ -57,6 +59,7 @@ function App() {
               <Route path='/about' element={<AboutPage/>} />
               <Route path='/products' element={<ProductsListingPage/>} />
               <Route path='/products/categories/:categoryId' element={<ProductsListingPage/>} />
+              <Route path='/products/brands/:brandId' element={<ProductsListingBrandPage/>} />
               <Route path='/products/:productId' element={<ProductDetailPage/>} />
               <Route path='/login' element={<LoginPage/>} />
               <Route path='/signup' element={<SignUpPage/>} />
