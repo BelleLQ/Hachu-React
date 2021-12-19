@@ -9,7 +9,7 @@ const Footer = () => {
                 <div className="d-flex p-1">
                     <div className="footer-text">Privacy Policy</div>
                     <div className="footer-text">Terms & Conditions</div>
-                        <div className="ms-auto footer-text"><a href="https://business.facebook.com/hachu.canada/" target="_blank"><FaFacebookF className="footer-text"/></a></div>
+                        <div className="ms-auto footer-text"><a href="https://www.facebook.com/hachu.select.ca" target="_blank"><FaFacebookF className="footer-text"/></a></div>
                         <div className="footer-text"><a href="https://www.instagram.com/hachu_select.ca/" target="_blank"><FaInstagram className="footer-text" /></a></div>
                     </div>
                     <div className="d-flex p-1">

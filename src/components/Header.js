@@ -42,7 +42,7 @@ function Header() {
                             <Button variant="outline-success">Search</Button>
                         </Form>
                     <Nav>
-                        <Nav.Link href="https://business.facebook.com/hachu.canada/" target="_blank" className="nav-link-a"><FaFacebookF/></Nav.Link>
+                        <Nav.Link href="https://www.facebook.com/hachu.select.ca" target="_blank" className="nav-link-a"><FaFacebookF/></Nav.Link>
                         <Nav.Link href="https://www.instagram.com/hachu_select.ca/" target="_blank" className="nav-link-a"><FaInstagram/></Nav.Link>
 
                     </Nav>
