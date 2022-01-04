@@ -1,7 +1,10 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import Header from '../components/Header'
 import Footer from "../components/Footer";
 import {useParams, Link} from "react-router-dom";
+import CartContext from "../contexts/CartContext";
+import BrandContext from "../contexts/BrandContext";
+ import CategoryContext from "../contexts/CategoryContext";
 
 
 function ProductsListingPage() {
@@ -14,29 +17,80 @@ function ProductsListingPage() {
         "categoryId": [],
         "photoUrl": []
     })
-    const [category, setCategory] =useState({
-        "categoryName": "",
-        "photoUrl": "",
-        "categoryDesc":""
-    })
+    const categories = useContext(CategoryContext);
+    const [qty, setQty] = useState(1);
+    const {brands} = useContext(BrandContext);
+    const {cart, setCart} = useContext(CartContext);
+    let imgCount;
+    let thisCategory;
 
     useEffect(()=>{
         fetch(`${process.env.REACT_APP_BACK_END_API_DOMAIN}/products/${productId}`)
             .then(res=>res.json())
             .then(jsonData=>{
                 setProduct(jsonData.data);
+
             })
-        fetch(`${process.env.REACT_APP_BACK_END_API_DOMAIN}/categories/${product.categoryId}`)
-            .then(res=>res.json())
-            .then(category=>{
-                setCategory(category.data);
-            })
-            .catch(err=>{
+            .then(()=>calculateImgCount())
+            .then(()=>getThisCategory())
+            .catch(err => {
                 console.log(err);
             })
 
-    }, [product])
-    let imgCount = product.photoUrl.length/4;
+
+    }, [])
+    const increaseQty=()=>{
+        setQty(qty+1);
+    }
+    const decreaseQty=()=>{
+        setQty(qty-1);
+    }
+    const addItemToCart=()=>{
+        console.log(`${brands} is added to cart`);
+
+        if(cart.length > 0 && cart.find(ele=>ele.productId===productId)) {
+            const sameItem=cart.find(ele=>ele.productId===productId)
+            sameItem.quantity+=qty;
+        }
+        else{
+            const brandName=brands.find(ele=>ele._id===product.brandId).brandName;
+            const newItem = {
+                "productId": productId,
+                "brand":brandName,
+                "productName": product.prodName,
+                "productPrice": product.price,
+                "productUrl": product.photoUrl[0],
+                "quantity": qty
+            }
+            if(cart.length===0) {
+                setCart([...cart, newItem]);
+            }
+            else {
+                console.log(cart);
+                const newCart = cart.push(newItem);
+                setCart(newCart);
+            }
+        }
+    }
+    const clearItemsInCart=()=>{
+        setCart([]);
+    }
+
+    const calculateImgCount=()=>{
+        imgCount = product.photoUrl.length/4;
+
+    }
+
+    const getThisCategory = () =>{
+
+        if(categories){
+        thisCategory= categories.categories.find((ele)=>{
+            return ele._id===product.categoryId[0];
+        });
+        }
+        else thisCategory={};
+    }
+
     return (
         <div className="container-fluid p-0">
             <Header />
@@ -45,7 +99,7 @@ function ProductsListingPage() {
                     <p className="d-inline-block prod-index">
                         <Link to="/">Home </Link>
                          /
-                        <Link to={`/products/categories/${category._id}`}> {category.categoryName} </Link>
+                        <Link to={(thisCategory)?`/products/categories/${thisCategory._id}`:``}> {(thisCategory)?thisCategory.categoryName:""} </Link>
                          / {product.prodName}
                     </p>
                     <div className="row">
@@ -66,10 +120,14 @@ function ProductsListingPage() {
                                 <hr />
                             </div>
                             <div className="prod-cart">
-                                <input/>
-                                <div className="add-to-cart mx-auto justify-content-center p-auto d-flex">
-                                    <p className="my-auto">Add to Cart</p>
+                                <div className='cart-product-counter d-flex align-items-center'>
+                                    <button className='down_count btn' title='Down' onClick={decreaseQty}>-</button>
+                                    <input className='counter' id="counter" type="text" placeholder="value..." value={qty}/>
+                                    <button className='up_count btn' title='Up' onClick={increaseQty}>+</button>
                                 </div>
+                                <button className="add-to-cart btn" onClick={addItemToCart} disabled={qty==0?true:false}>Add to Cart</button>
+                                {/*<button className="add-to-cart btn" onClick={clearItemsInCart}>clear Cart</button>*/}
+
                             </div>
                         </div>
                     </div>

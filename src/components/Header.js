@@ -5,10 +5,12 @@ import {Container,Navbar, Nav, NavDropdown, Button, Form, FormControl} from 'rea
 import {FaSearch, FaFacebookF, FaInstagram} from 'react-icons/fa'
 
 import CategoryContext from '../contexts/CategoryContext'
+import CartContext from "../contexts/CartContext";
 
 
 function Header() {
     const {categories} = useContext(CategoryContext);
+    const {cart} = useContext(CartContext);
     return (
         <header>
         <Navbar fixed="top" bg="white" expand="lg" style={{position: 'sticky', borderBottom: "1px solid #d3d3d3"}} className="py-3">
@@ -28,7 +30,9 @@ function Header() {
 
                         </NavDropdown>
                         <Nav.Link><Link className="nav-link-a underline-fade-in" to="/about">ABOUT</Link></Nav.Link>
-                        <Nav.Link><Link className="nav-link-a underline-fade-in" to="/cart">CART</Link></Nav.Link>
+                        <Nav.Link><Link className="nav-link-a underline-fade-in" to="/cart">
+                            <span><p className="d-inline-block m-0">CART</p><p className={cart.length>0?"d-inline-block m-0 header-qty-number":"d-none"}>{cart.length}</p>
+                            </span></Link></Nav.Link>
                         <Nav.Link><Link className="nav-link-a underline-fade-in" to="/login">ACCOUNT</Link></Nav.Link>
                         <Nav.Link><Link className="nav-link-a" to="/search"><FaSearch/></Link></Nav.Link>
                     </Nav>

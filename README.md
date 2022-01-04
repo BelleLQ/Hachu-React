@@ -4,8 +4,7 @@ This website is built using MERN stack, and hosted on Netlify.
 
 ### URL:
 Deployment:
-https://optimistic-thompson-bbce25.netlify.app/
-\
+https://hachu.netlify.app/\
 Back-end API:
 https://github.com/BelleLQ/Hachu-API
 

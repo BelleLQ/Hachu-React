@@ -5,26 +5,12 @@ import Hero from "../components/Hero";
 import Feature from "../components/Feature";
 
 import CategoryContext from "../contexts/CategoryContext";
+import BrandContext from "../contexts/BrandContext";
 
 function HomePage() {
     const {categories} = useContext(CategoryContext);
-    const [brands, setBrands] = useState([{
-        "brandName": "",
-        "photoUrl": "",
-        "brandDesc":""
-    }])
-    useEffect(()=> {
-        fetch(`${process.env.REACT_APP_BACK_END_API_DOMAIN}/brands`)
-            .then(res => res.json())
-            .then(brands => {
-                setBrands(brands.data);
-            })
-            .catch(err => {
-                console.log(err);
-            })
-    },[])
-    console.log(categories);
-    console.log(brands.photoUrl);
+    const {brands} = useContext(BrandContext);
+
 
     return (
         <div className="container-fluid p-0">

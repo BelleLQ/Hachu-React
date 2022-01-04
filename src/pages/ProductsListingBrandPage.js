@@ -33,7 +33,7 @@ function ProductsListingBrandPage() {
             .catch(err=>{
                 console.log(err);
             })
-    },[])
+    },[products])
     let brCount = productCount/4;
     return (
         <div className="container-fluid p-0">

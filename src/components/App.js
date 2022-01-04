@@ -17,7 +17,9 @@ import ProductsListingBrandPage from "../pages/ProductsListingBrandPage";
 
 
 import CategoryContext from '../contexts/CategoryContext'
+import BrandContext from '../contexts/BrandContext'
 import ProductContext from "../contexts/ProductContext";
+import CartContext from "../contexts/CartContext";
 
 function App() {
     const [categories, setCategories] = useState(
@@ -32,12 +34,22 @@ function App() {
         [
             {
                 "prodName": "",
-                "brand": "",
-                "price":0,
-                "category":"",
-                "photoUrl":[]
+                "brandId": "",
+                "price": 0,
+                "options": [],
+                "categoryId": [],
+                "photoUrl": []
             }]
     )
+    const [cart, setCart] = useState(
+        [
+            ]
+    )
+    const [brands, setBrands] = useState([{
+        "brandName": "",
+        "photoUrl": "",
+        "brandDesc":""
+    }])
   useEffect(()=>{
 
       fetch(`${process.env.REACT_APP_BACK_END_API_DOMAIN}/categories`)
@@ -48,24 +60,35 @@ function App() {
           .catch(err=>{
               console.log(err);
           })
+      fetch(`${process.env.REACT_APP_BACK_END_API_DOMAIN}/brands`)
+          .then(res => res.json())
+          .then(brands => {
+              setBrands(brands.data);
+          })
+          .catch(err => {
+              console.log(err);
+          })
   },[])
-    console.log(categories);
   return (
       <Router>
           <CategoryContext.Provider value = {{categories, setCategories}}>
+              <BrandContext.Provider value = {{brands, setBrands}}>
               <ProductContext.Provider value = {{products, setProducts}}>
-              <Routes>
-              <Route path='/' element={<HomePage/>} />
-              <Route path='/about' element={<AboutPage/>} />
-              <Route path='/products' element={<ProductsListingPage/>} />
-              <Route path='/products/categories/:categoryId' element={<ProductsListingPage/>} />
-              <Route path='/products/brands/:brandId' element={<ProductsListingBrandPage/>} />
-              <Route path='/products/:productId' element={<ProductDetailPage/>} />
-              <Route path='/login' element={<LoginPage/>} />
-              <Route path='/signup' element={<SignUpPage/>} />
-              <Route path='/cart' element={<CartPage/>} />
-          </Routes>
-          </ProductContext.Provider>
+                  <CartContext.Provider value={{cart, setCart}}>
+                      <Routes>
+                          <Route path='/' element={<HomePage/>} />
+                          <Route path='/about' element={<AboutPage/>} />
+                          <Route path='/products' element={<ProductsListingPage/>} />
+                          <Route path='/products/categories/:categoryId' element={<ProductsListingPage/>} />
+                          <Route path='/products/brands/:brandId' element={<ProductsListingBrandPage/>} />
+                          <Route path='/products/:productId' element={<ProductDetailPage/>} />
+                          <Route path='/login' element={<LoginPage/>} />
+                          <Route path='/signup' element={<SignUpPage/>} />
+                          <Route path='/cart' element={<CartPage/>} />
+                      </Routes>
+                  </CartContext.Provider>
+             </ProductContext.Provider>
+          </BrandContext.Provider>
           </CategoryContext.Provider>
       </Router>
   );

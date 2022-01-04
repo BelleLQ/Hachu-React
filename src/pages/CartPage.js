@@ -1,10 +1,27 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import Header from '../components/Header'
 import Footer from "../components/Footer";
 import {AiOutlineClose} from "react-icons/ai"
+import CartContext from "../contexts/CartContext";
 
 
 function CartPage() {
+    const {cart, setCart} = useContext(CartContext);
+    const increaseQty=(evt)=>{
+         let valueNow=evt.target.parentNode.childNodes[1].getAttribute("value");
+        evt.target.parentNode.childNodes[1].setAttribute("value",parseInt(valueNow)+1);
+        document.getElementById("counter").value=parseInt(valueNow)+1;
+        }
+    const decreaseQty=(evt)=>{
+        let valueNow=evt.target.parentNode.childNodes[1].getAttribute("value");
+        if(valueNow>0) {
+            evt.target.parentNode.childNodes[1].setAttribute("value", parseInt(valueNow) - 1);
+            document.getElementById("counter").value = parseInt(valueNow) - 1;
+        }
+    }
+    const deleteItemFromCart=(cartItem)=>{
+
+    }
     return (
         <div className="container-fluid p-0">
             <Header/>
@@ -23,20 +40,26 @@ function CartPage() {
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td><AiOutlineClose onClick={()=> {
-                            }}/>
-                            </td>
-                            <td className="cart-img"><img src="https://i1.wp.com/hachu-canada.com/wp-content/uploads/2021/09/IMG_3621.jpg?resize=1024%2C1024&ssl=1" alt=""/></td>
-                            <td>The Brand & Iron Laconic Candle - Eunoia</td>
-                            <td>CAD$ 40.00</td>
-                            <td><div>
-                                <a>-</a>
-                                <input type="text" value="1"/>
-                                <a>+</a>
-                            </div></td>
-                            <td>CAD$ 40.00</td>
-                        </tr>
+                        {cart.map((cartItem,index)=>{
+                            return(
+                                <tr key={index}>
+                                    <td><AiOutlineClose onClick={deleteItemFromCart(cartItem)}/>
+                                    </td>
+                                    <td className="cart-img"><a href={`/products/${cartItem.productId}`}><img src={cartItem.productUrl} alt=""/></a></td>
+                                    <td>{cartItem.brand} {cartItem.productName}</td>
+                                    <td>{cartItem.productPrice}</td>
+                                    <td>
+                                        <div className='cart-product-counter d-flex align-items-center'>
+                                            <button className='down_count btn' key="1" title='Down' onClick={decreaseQty}>-</button>
+                                            <input className='counter' id="counter" type="text" placeholder="value..." value={cartItem.quantity}/>
+                                            <button className='up_count btn' key="1" title='Up' onClick={increaseQty}>+</button>
+                                        </div>
+                                    </td>
+                                    <td>{cartItem.productPrice*cartItem.quantity}</td>
+                                </tr>
+                            )
+                        })}
+
                         </tbody>
                     </table>
                     <div className="coupon d-flex">

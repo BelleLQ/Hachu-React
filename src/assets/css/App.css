@@ -44,6 +44,17 @@ a:hover{
   color: #61dafb;
 }
 
+/*header*/
+.header-qty-number{
+  padding: 0;
+  text-align: center;;
+  background-color: indianred;
+  border-radius: 50%;
+  width:3em;
+  height:3em;
+  color: white;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -274,6 +285,7 @@ a:hover{
   width: 34vw;
 }
 
+/*cart page*/
 .cart-container{
   margin: 2vw 10vw;
 }
@@ -308,6 +320,38 @@ a:hover{
   height:9vw;
   width: auto;
 }
+.counter {
+  width: 3rem;
+  height: 2.6rem;
+  border-radius: 0;
+  text-align: center;
+  border: 1px solid #eaeaea;
+  z-index: 998;
+  color:#777;
+}
+.up_count {
+  margin: 0;
+  text-align: center;
+  padding: 0 0.6rem;
+  height: 2.6rem;
+  border-radius: 0;
+  border: 1px solid #eaeaea;
+  z-index: 999;
+  color:#777;
+  width:2.4rem;
+}
+.down_count {
+  margin: 0;
+  text-align: center;
+  padding: 0 0.6rem;
+  height: 2.6rem;
+  border-radius: 0;
+  border: 1px solid #eaeaea;
+  z-index: 999;
+  color:#777;
+  width:2.4rem;
+}
+
 .btn-green{
   color: #fff;
   background-color: #6C827A;
