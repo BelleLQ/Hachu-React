@@ -14,6 +14,24 @@ a:hover{
   text-decoration: none;
   color: grey;
 }
+svg{
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+body{
+  min-height: 100vh;
+  position: relative;
+  padding-bottom: 6.25rem;
+}
+footer{
+  height:6.25rem;
+  position: absolute;
+  bottom: 0;
+  width:100%;
+  padding: 1rem 0;
+}
+
 .App {
   text-align: center;
 }
@@ -22,6 +40,7 @@ a:hover{
   height: 40vmin;
   pointer-events: none;
 }
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -71,12 +90,30 @@ a:hover{
   margin: 0 10px;
   font-weight: 700;
   letter-spacing: 1px;
+  display:inline-block;
+  text-align: center;
 }
+
+.footer-right-column{
+  padding-left: 0;
+}
+
 .footer{
   background-color: #ABBBB5;
-  height:100px;
   padding: 0 70px;
+  text-align: center
 }
+
+
+@media screen and (min-width:768px) {
+  .footer{
+    text-align: left !important;
+  }
+  .footer-right-column{
+    padding-left: 10%;
+  }
+}
+
 
 .font-Pacifico{
   font-family: 'Pacifico', cursive;
@@ -86,7 +123,27 @@ a:hover{
 }
 
 /*HomePage*/
-.hero-img{
+.hero-title{
+  text-align: center;
+}
+.hero-md{
+  display: none;
+}
+.hero-sm{
+  display: block;
+}
+@media screen and (min-width:768px) {
+  .hero-title{
+    text-align: left;
+  }
+  .hero-md{
+    display: block;
+  }
+  .hero-sm{
+    display: none;
+  }
+}
+  .hero-img{
   height: 35vw;
   width: 100%;
   object-fit: cover;
@@ -95,6 +152,7 @@ a:hover{
   font-family: 'Roboto', sans-serif;
   color: #757575;
   margin: 0;
+
 }
 .feature-img-div{
   overflow: hidden;
@@ -162,11 +220,11 @@ a:hover{
 }
 
 .about-container{
-  height: 105vw;
+  height: 120vh;
   overflow: hidden;
 }
 .about-title-container{
-  height: 400px;
+  height: 20rem;
   width: 100%;
   overflow: hidden;
   background-image: url("https://hachu-canada.com/wp-content/uploads/2021/09/about-us-bg.png");
@@ -176,8 +234,8 @@ a:hover{
 }
 .about-title{
   background-color: white;
-  width: 600px;
-  height:153px;
+  width: 100%;
+  height:9.5rem;
 }
 
 .about-title-text {
@@ -186,7 +244,7 @@ a:hover{
 }
 .about {
   color: #896D6D;
-  font-size: 60px;
+  font-size: 2.75rem;
   font-family: 'Josefin Sans', sans-serif;
   font-weight: 300;
   text-transform: uppercase;
@@ -199,95 +257,207 @@ a:hover{
 }
 .intro-container-circle{
   background-color: #626B68;
-  height: 41vw;
-  width:41vw;
+  height: 20rem;
+  width:20rem;
   border-radius: 50%;
   position: relative;
-  top: -60vw;
+  top: -30rem;
+  z-index: 996;
+
 }
 .intro-text{
   width: 400px;
   font-family: 'Roboto Mono', sans-serif;
   color: white;
-  background: #333;
-  font-size: 12px;
+  padding: 2rem;
+  text-align: center;
+  font-size: 0.75rem;
 }
 
 .about-pic-circle-1{
-  height: 20vw;
-  width: 20vw;
+  height: 10rem;
+  width: 10rem;
   overflow: hidden;
   border-radius: 50%;
   position: relative;
-  left: 24vw;
-  margin-top: 2vw;
+  left: 40vw;
+  margin-top: 1rem;
   z-index: 999;
 }
 
 .about-pic-circle-1 img{
-  height: 20vw;
+  height: 10rem;
 }
 
 .about-pic-circle-2{
-  height: 28vw;
-  width: 28vw;
+  height: 14rem;
+  width: 14rem;
   overflow: hidden;
   border-radius: 50%;
   position: relative;
-  left: 76vw;
-  top: -16vw;
+  left: 38rem;
+  top: -8rem;
 }
 
 .about-pic-circle-2 img{
-  height: 28vw;
+  height: 14rem;
 }
 
 .about-pic-circle-3{
-  height: 23vw;
-  width: 23vw;
+  height: 11.625rem;
+  width: 11.625rem;
   overflow: hidden;
   border-radius: 50%;
   position: relative;
-  left: -8vw;
-  top: -33vw;
+  left: -4rem;
+  top: -16.5rem;
 }
 
 .about-pic-circle-3 img{
-  height: 23vw;
+  height: 11.625rem;
 }
 
 .about-pic-circle-4{
-  height: 17vw;
-  width: 17vw;
+  height: 8.6rem;
+  width: 8.6rem;
   overflow: hidden;
   border-radius: 50%;
   position: relative;
-  left: 64vw;
-  top:-79vw;
+  left: 32rem;
+  top:-40rem;
 }
 
 .about-pic-circle-4 img{
-  height: 17vw;
+  height: 8.6rem;
 }
 
 .about-pic-circle-5{
-  height: 34vw;
-  width: 34vw;
+  height: 15.8rem;
+  width: 15.8rem;
   overflow: hidden;
   border-radius: 50%;
   position: relative;
-  left: 9vw;
-  top:-94vw;
+  left: 8rem;
+  top:-45rem;
+  z-index: 5;
 }
 
 .about-pic-circle-5 img{
-  height: 34vw;
-  width: 34vw;
+  height: 15.8rem;
+  width: 15.8rem;
 }
+
+    @media (min-width: 576px){
+      .about {
+        font-size: 3.75rem;
+      }
+      .about-container{
+        height: 150vw;
+        min-height: 70rem;
+        max-height:100rem;
+        overflow: hidden;
+      }
+      .about-title-container{
+        height: 25rem;
+        height: 400px;
+      }
+      .about-title{
+        height:9.5rem;
+      }
+
+      .intro-container-circle{
+        height: 30rem;
+        width:30rem;
+        top: -57vw;
+      }
+      .intro-text{
+        width: 400px;
+        font-family: 'Roboto Mono', sans-serif;
+        color: white;
+        padding: 2rem;
+        text-align: center;
+        font-size: 0.9rem;
+        line-height: 2rem;
+      }
+
+      .about-pic-circle-1{
+        height: 22vw;
+        width: 22vw;
+        overflow: hidden;
+        border-radius: 50%;
+        position: relative;
+        left: 30vw;
+        margin-top: 3vw;
+        z-index: 999;
+      }
+
+      .about-pic-circle-1 img{
+        height: 22vw;
+      }
+
+      .about-pic-circle-2{
+        height: 28vw;
+        width: 28vw;
+        overflow: hidden;
+        border-radius: 50%;
+        position: relative;
+        left: 75vw;
+        top: -15vw;
+      }
+
+      .about-pic-circle-2 img{
+        height: 28vw;
+      }
+
+      .about-pic-circle-3{
+        height: 25vw;
+        width: 25vw;
+        overflow: hidden;
+        border-radius: 50%;
+        position: relative;
+        left: -5vw;
+        top: -30vw;
+      }
+
+      .about-pic-circle-3 img{
+        height: 25vw;
+      }
+
+      .about-pic-circle-4{
+        height: 15vw;
+        width: 15vw;
+        overflow: hidden;
+        border-radius: 50%;
+        position: relative;
+        left: 64vw;
+        top:-70vw;
+        z-index: 996;
+      }
+
+      .about-pic-circle-4 img{
+        height: 15vw;
+      }
+
+      .about-pic-circle-5{
+        height: 36vw;
+        width: 36vw;
+        overflow: hidden;
+        border-radius: 50%;
+        position: relative;
+        left: 9vw;
+        top:-85vw;
+        z-index: 997;
+      }
+
+      .about-pic-circle-5 img{
+        height: 36vw;
+        width: 36vw;
+      }
+    }
 
 /*cart page*/
 .cart-container{
-  margin: 2vw 10vw;
+  margin: 1rem 5rem;
 }
 .cart-table{
   width:80%;
@@ -446,9 +616,12 @@ margin-left: 50vw;
 .prod-card{
   width: 50%;
   overflow: hidden;
-
 }
-@media (min-width: 576px){
+
+.card-title{
+  height:2rem;
+}
+@media (min-width: 678px){
   .prod-card{
     width: 30%;
     overflow: hidden;
