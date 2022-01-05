@@ -11,7 +11,7 @@ const Hero = () => {
                     </div>
                     <div className="col-md-8 col-12">
                         <img
-                            src="https://hachu-canada.com/wp-content/uploads/2021/10/IMG_6143-2.jpg"
+                            src="https://i.ibb.co/svnB43d/home-page-img.webp"
                             alt="new"
                             className="hero-img"
                         />
