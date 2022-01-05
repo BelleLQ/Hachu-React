@@ -33,7 +33,7 @@ function ProductsListingPage() {
             .catch(err=>{
                 console.log(err);
             })
-    },[products])
+    },[])
     let prodCount = productCount/4;
     return (
         <div className="container-fluid p-0">
