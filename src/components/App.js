@@ -14,7 +14,7 @@ import CartPage from "../pages/CartPage";
 import ProductDetailPage from "../pages/ProductDetailPage";
 import ProductsListingPage from "../pages/ProductsListingPage";
 import ProductsListingBrandPage from "../pages/ProductsListingBrandPage";
-
+import CheckOutPage from "../pages/CheckOutPage"
 
 import CategoryContext from '../contexts/CategoryContext'
 import BrandContext from '../contexts/BrandContext'
@@ -51,7 +51,6 @@ function App() {
         "brandDesc":""
     }])
   useEffect(()=>{
-
       fetch(`${process.env.REACT_APP_BACK_END_API_DOMAIN}/categories`)
           .then(res=>res.json())
           .then(jsonData=>{
@@ -60,6 +59,7 @@ function App() {
           .catch(err=>{
               console.log(err);
           })
+
       fetch(`${process.env.REACT_APP_BACK_END_API_DOMAIN}/brands`)
           .then(res => res.json())
           .then(brands => {
@@ -85,6 +85,8 @@ function App() {
                           <Route path='/login' element={<LoginPage/>} />
                           <Route path='/signup' element={<SignUpPage/>} />
                           <Route path='/cart' element={<CartPage/>} />
+                          <Route path='/checkout' element={<CheckOutPage/>} />
+
                       </Routes>
                   </CartContext.Provider>
              </ProductContext.Provider>

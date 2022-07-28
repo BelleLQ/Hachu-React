@@ -9,6 +9,7 @@ import BrandContext from "../contexts/BrandContext";
 
 function ProductsListingPage() {
     const {productId} = useParams();
+    const [isChanged, setIsChanged] = useState(false);
     const [product,setProduct] = useState({
         "prodName": "",
         "brandId": "",
@@ -25,20 +26,23 @@ function ProductsListingPage() {
     let thisCategory;
 
     useEffect(()=>{
-        fetch(`${process.env.REACT_APP_BACK_END_API_DOMAIN}/products/${productId}`)
-            .then(res=>res.json())
-            .then(jsonData=>{
-                setProduct(jsonData.data);
+        const fetchData = async() => {
+            const response = await fetch(`${process.env.REACT_APP_BACK_END_API_DOMAIN}/products/${productId}`);
+            const jsonData = await response.json();
+            setProduct(jsonData.data);
+        }
 
-            })
-            .then(()=>calculateImgCount())
-            .then(()=>getThisCategory())
-            .catch(err => {
-                console.log(err);
-            })
+        fetchData();
+    }, []);
 
+    useEffect(() => {
+        if (isChanged === false) {
+            // sorting
 
-    }, [])
+            setIsChanged(true);
+        }
+    }, [product, isChanged]);
+
     const increaseQty=()=>{
         setQty(qty+1);
     }

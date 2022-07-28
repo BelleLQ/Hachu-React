@@ -68,6 +68,11 @@ function CartPage() {
                     <button className="btn btn-primary btn-green p-2 btn-update-cart" type="submit">Update Cart</button>
                     </div>
 
+                    <div>
+                        <form action="/checkout">
+                        <button className="btn btn-primary btn-green p-2 btn-update-cart mt-5" type="submit" style={{width:"28%"}}>Check out</button>
+                        </form>
+                    </div>
                 </div>
                 </div>
             </main>
