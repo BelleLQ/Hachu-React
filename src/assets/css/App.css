@@ -686,7 +686,8 @@ font-size:13px;
 }
 .prod-pic-small{
   overflow: hidden;
-  justify-content: space-between;
+  justify-content: start;
+  column-gap: 1vw;
   width: 44vw;
 }
 .prod-pic-small img{
