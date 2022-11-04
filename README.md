@@ -4,7 +4,8 @@ This website is built using MERN stack, and hosted on Netlify.
 
 ### URL:
 Deployment:
-https://hachu.netlify.app/\
+https://hachu.bellelqweb.com
+\
 Back-end API:
 https://github.com/BelleLQ/Hachu-API
 
